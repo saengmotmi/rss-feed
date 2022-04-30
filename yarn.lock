@@ -1620,6 +1620,13 @@ queue-microtask@^1.2.2:
   resolved "https://registry.yarnpkg.com/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
+react-animated-cursor@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/react-animated-cursor/-/react-animated-cursor-2.4.0.tgz#34b78885bc216af0ba37171031f877ae77b47deb"
+  integrity sha512-xxgaNh9mj13ua0GWoGjoGqI0Gq1p8WYBf75k9+COohqmUWp0JNdsJwzSjf2mPhfQwYQVR0dkO7Yi7bLJRQOfHQ==
+  dependencies:
+    prop-types "^15.8.1"
+
 react-dom@17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
