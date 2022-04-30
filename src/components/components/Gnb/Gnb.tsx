@@ -5,7 +5,7 @@ const Gnb = () => {
   return (
     <Container>
       <Wrapper>
-        <Title>RSS Feed</Title>
+        <Title>Tech Blog Feed</Title>
         <UserArea>
           <Image
             alt="user_profile"
