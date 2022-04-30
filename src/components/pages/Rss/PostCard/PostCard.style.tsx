@@ -39,11 +39,14 @@ export const WrittenAt = styled.p`
   font-size: 13px;
 `;
 
-export const Author = styled.p``;
+export const Author = styled.p`
+  color: rgba(117, 117, 117, 1);
+  font-size: 13px;
+`;
 
 export const Description = styled.p`
   font-size: 13px;
-  color: rgba(0, 0, 0, 0.87);
+  color: rgba(0, 0, 0, 0.7);
   line-height: 1.66;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -51,4 +54,9 @@ export const Description = styled.p`
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   cursor: pointer;
+
+  a {
+    all: unset;
+    cursor: pointer;
+  }
 `;

@@ -1,3 +1,5 @@
+import Gnb from "../Gnb/Gnb";
+import Footer from "../Footer/Footer";
 import { Container } from "./Layout.style";
 
 interface Props {
@@ -5,7 +7,13 @@ interface Props {
 }
 
 const Layout = ({ children }: Props) => {
-  return <Container>{children}</Container>;
+  return (
+    <Container>
+      <Gnb />
+      {children}
+      <Footer />
+    </Container>
+  );
 };
 
 export default Layout;

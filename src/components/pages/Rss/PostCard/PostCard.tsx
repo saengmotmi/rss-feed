@@ -1,8 +1,6 @@
 import dayjs from "dayjs";
-import Link from "next/link";
 import type { Item } from "types/rss/rssApi";
 import { TIME_FORMAT_DATE_AND_MINUTE } from "utils/constants/dates";
-import { FILTER_TAGS_REGEX } from "utils/constants/regex";
 import {
   Author,
   BlogTitle,
@@ -29,14 +27,16 @@ const PostCard = ({ feed }: Props) => {
           {dayjs(feed.isoDate).format(TIME_FORMAT_DATE_AND_MINUTE)}
         </WrittenAt>
       </Meta>
-      <Link href={feed.link} passHref>
-        <Title>
-          <a target="_blank">{feed.title}</a>
-        </Title>
-      </Link>
-      <Link href={feed.link} passHref>
-        <Description>{content}</Description>
-      </Link>
+      <Title>
+        <a href={feed.link} target="_blank" rel="noreferrer">
+          {feed.title}
+        </a>
+      </Title>
+      <Description>
+        <a href={feed.link} target="_blank" rel="noreferrer">
+          {content}
+        </a>
+      </Description>
     </Container>
   );
 };
