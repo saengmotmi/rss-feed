@@ -28,6 +28,7 @@ export interface Item {
   author?: string;
   categories?: string[];
   blogTitle: string; // Feed의 title으로부터
+  image: Image; // Feed의 title으로부터
 }
 
 export interface Image {

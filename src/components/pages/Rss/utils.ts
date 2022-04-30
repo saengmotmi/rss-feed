@@ -22,6 +22,11 @@ export const formatFeeds = (feeds: Feed[]) => {
           i["content:encodedSnippet"] ?? ""
         ),
         blogTitle: f.title,
+        image: f?.image || {
+          url: "",
+          link: "",
+          title: "",
+        },
       }))
     )
     .sort((a, b) => (dayjs(a.isoDate).isBefore(dayjs(b.isoDate)) ? 1 : -1))

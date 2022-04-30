@@ -1,3 +1,4 @@
+import ImageWithFallback from "components/components/ImageWithFallback/ImageWithFallback";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -9,6 +10,7 @@ export const Container = styled.div`
 
 export const Meta = styled.div`
   display: flex;
+  align-items: center;
   gap: 8px;
 
   p {
@@ -59,4 +61,8 @@ export const Description = styled.p`
     all: unset;
     cursor: pointer;
   }
+`;
+
+export const Image = styled(ImageWithFallback)`
+  border-radius: 50%;
 `;

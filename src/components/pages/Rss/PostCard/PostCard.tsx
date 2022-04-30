@@ -9,6 +9,7 @@ import {
   Meta,
   Title,
   WrittenAt,
+  Image,
 } from "./PostCard.style";
 
 interface Props {
@@ -21,6 +22,23 @@ const PostCard = ({ feed }: Props) => {
   return (
     <Container>
       <Meta>
+        {feed.image?.url ? (
+          <Image
+            alt="post_thumbnail"
+            src={feed.image?.url ?? ""}
+            width={24}
+            height={24}
+            fallbackSrc="/assets/account.png"
+          />
+        ) : (
+          <Image
+            alt="post_thumbnail"
+            src="/assets/account.png"
+            width={24}
+            height={24}
+            fallbackSrc=""
+          />
+        )}
         <BlogTitle>{feed.blogTitle}</BlogTitle>
         {feed.author && <Author>{feed.author}</Author>}
         <WrittenAt>
