@@ -1,5 +1,6 @@
 export const BLOG_LIST = [
   "https://v2.velog.io/rss/teo", // teo
+  "https://v2.velog.io/rss/koeunyeon", // koeunyeon
   "https://wormwlrm.github.io/feed.xml", // 재그지그
   "https://so-so.dev/rss.xml", // 이소영
   "https://jbee.io/rss.xml", // 한재엽

@@ -2,6 +2,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import font from "styles/font";
+import GlobalStyle from "styles/GlobalStyle";
 // @ts-ignore
 const AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
   ssr: false,
@@ -23,7 +24,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <style>{font}</style>
       </Head>
       {/* 스타일 다 깨짐 */}
-      {/* <GlobalStyle /> */}
+      <GlobalStyle />
       <Component {...pageProps} />
       <AnimatedCursor
         // @ts-ignore
