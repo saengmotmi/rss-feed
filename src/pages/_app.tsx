@@ -15,12 +15,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         {/* width=device-width: 화면의 넓이를 디바이스의 넓이로 지정 */}
         {/* initial-scale=1: 초기 화면 배율 */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link
-          rel="stylesheet"
-          as="style"
-          crossOrigin="anonymous"
-          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
-        />
         <style>{font}</style>
       </Head>
       {/* 스타일 다 깨짐 */}
