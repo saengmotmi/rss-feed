@@ -1,11 +1,41 @@
 import styled from "styled-components";
 
+export const Suggestions = styled.div`
+  display: none;
+  position: absolute;
+  padding: 0 20px 5px;
+  width: calc(100% + 2px);
+  top: 35px;
+  left: -1px;
+  background-color: #f8f9fa;
+  border: 1px solid #5f6368;
+  border-top: none;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  z-index: 100;
+`;
+
+export const Suggestion = styled.p``;
+
 export const Container = styled.form`
-  padding: 5px 8px;
+  position: relative;
+  padding: 10px 15px;
   display: flex;
   gap: 13px;
   border: 1px solid #5f6368;
-  border-radius: 24px;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+
+  :focus-within {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    ${Suggestions} {
+      display: block;
+    }
+  }
 `;
 
 export const SearchInputWrapper = styled.div``;

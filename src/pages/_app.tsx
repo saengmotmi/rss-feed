@@ -1,12 +1,15 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import dynamic from "next/dynamic";
+import { QueryClient, QueryClientProvider } from "react-query";
 import font from "styles/font";
 import GlobalStyle from "styles/GlobalStyle";
 // @ts-ignore
 const AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
   ssr: false,
 });
+
+const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -19,7 +22,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       {/* 스타일 다 깨짐 */}
       <GlobalStyle />
-      <Component {...pageProps} />
+      <QueryClientProvider client={queryClient}>
+        <Component {...pageProps} />
+      </QueryClientProvider>
       <AnimatedCursor
         // @ts-ignore
         innerSize={15}

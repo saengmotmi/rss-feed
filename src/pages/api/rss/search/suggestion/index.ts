@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import Axios from "axios";
-import type { SearchSuggestions } from "types/rss/searchApi";
 import convert from "xml-js";
+import type { SearchSuggestions } from "types/rss/searchApi";
 
 const client = Axios.create({
   baseURL: "https://www.google.com",
@@ -12,7 +12,7 @@ const getSearchSuggestions = async (
   res: NextApiResponse<SearchSuggestions>
 ) => {
   const { data } = await client.get<string>(
-    `/complete/search?q=${req.query.q}&output=toolbar`
+    `/complete/search?q=${req.query.q}&output=toolbar&hl=kr`
   );
 
   const xmlToJson: SearchSuggestions = JSON.parse(

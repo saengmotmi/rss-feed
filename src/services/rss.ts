@@ -7,6 +7,6 @@ const client = Axios.create({
 
 export const getSearchSuggestions = (query: string) => {
   return client.get<SearchSuggestions>(
-    `/rss/search/suggestion?q=${query}&cp=9&client=gws-wiz&xssi=t`
+    `/rss/search/suggestion?q=${encodeURIComponent(query)}`
   );
 };
