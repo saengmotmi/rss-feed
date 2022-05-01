@@ -15,7 +15,14 @@ export const Suggestions = styled.div`
   z-index: 100;
 `;
 
-export const Suggestion = styled.p``;
+export const Suggestion = styled.p`
+  a {
+    all: unset;
+    :hover {
+      text-decoration: underline;
+    }
+  }
+`;
 
 export const Container = styled.form`
   position: relative;
