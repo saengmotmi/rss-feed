@@ -24,5 +24,8 @@ export const getStaticProps = async () => {
     BLOG_LIST.map((url) => parser.parseURL(url))
   )) as Feed[];
 
-  return { props: { feeds: formatFeeds(feeds) } };
+  return {
+    props: { feeds: formatFeeds(feeds) },
+    revalidate: 60 * 60 * 6 /* 6 hours */,
+  };
 };
