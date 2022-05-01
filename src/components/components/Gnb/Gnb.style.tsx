@@ -7,7 +7,7 @@ export const Container = styled.nav`
   left: 0;
   right: 0;
   padding: 15px 0;
-  z-index: 1000;
+  z-index: 100;
   backdrop-filter: saturate(180%) blur(20px);
 `;
 
