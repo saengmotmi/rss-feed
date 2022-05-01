@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import Pagination from "components/components/Pagination/Pagination";
 import type { Item } from "types/rss/rssApi";
 import PostCard from "./PostCard/PostCard";
-import { Container, Feeds } from "./Rss.style";
+import { Container, Feeds, SectionTitle } from "./Rss.style";
 import SearchInput from "./SearchInput/SearchInput";
 
 const CONTENTS_PER_PAGE = 10;
@@ -26,11 +26,15 @@ const Rss = ({ feeds }: Props) => {
   return (
     <Container>
       <SearchInput />
-      <Feeds>
-        {paginatedFeeds.map((feed) => (
-          <PostCard key={feed.guid} feed={feed} />
-        ))}
-      </Feeds>
+      <div>
+        <SectionTitle>기술 포스트</SectionTitle>
+        <Feeds>
+          {paginatedFeeds.map((feed) => (
+            <PostCard key={feed.guid} feed={feed} />
+          ))}
+        </Feeds>
+      </div>
+
       <Pagination
         setPage={setPage}
         contentsPerPage={CONTENTS_PER_PAGE}

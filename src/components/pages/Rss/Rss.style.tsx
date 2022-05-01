@@ -10,5 +10,12 @@ export const Container = styled.div`
 export const Feeds = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 24px;
+
+  :not(:first-child) {
+    gap: 24px;
+  }
+`;
+
+export const SectionTitle = styled.h3`
+  margin: 0 0 20px 0;
 `;

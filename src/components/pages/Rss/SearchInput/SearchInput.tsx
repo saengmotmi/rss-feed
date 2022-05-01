@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useQuery } from "react-query";
 import { Container, Input, Suggestion, Suggestions } from "./SearchInput.style";
 import { getSearchSuggestions } from "services/rss";
+import { SectionTitle } from "../Rss.style";
 
 const SearchInput = () => {
   const [searchKeyword, setSearchKeyword] = useState<string>("");
@@ -34,7 +35,8 @@ const SearchInput = () => {
   }, []);
 
   return (
-    <>
+    <div>
+      <SectionTitle>구글 검색</SectionTitle>
       <Container onSubmit={handleSubmit}>
         <Image alt="search" src="/assets/search.svg" width={24} height={24} />
         <Input
@@ -51,7 +53,7 @@ const SearchInput = () => {
           )) ?? <Suggestion>검색어가 없습니다</Suggestion>}
         </Suggestions>
       </Container>
-    </>
+    </div>
   );
 };
 

@@ -12,5 +12,10 @@ export const Container = styled.div`
   li {
     list-style: none;
     cursor: pointer;
+    color: rgba(0, 0, 0, 0.6);
+
+    &.selected {
+      color: rgba(0, 0, 0, 1);
+    }
   }
 `;
