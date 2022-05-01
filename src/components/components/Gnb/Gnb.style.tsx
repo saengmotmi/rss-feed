@@ -6,16 +6,17 @@ export const Container = styled.nav`
   top: 0;
   left: 0;
   right: 0;
-  padding: 15px;
+  padding: 15px 0;
   z-index: 1000;
   backdrop-filter: saturate(180%) blur(20px);
 `;
 
 export const Wrapper = styled.div`
+  padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: ${BREAK_POINT.DESKTOP}px;
+  max-width: ${BREAK_POINT.DESKTOP}px;
   margin: 0 auto;
 `;
 
