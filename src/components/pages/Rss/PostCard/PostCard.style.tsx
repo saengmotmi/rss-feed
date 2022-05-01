@@ -6,6 +6,7 @@ export const Container = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 6px;
   box-shadow: 10px -8px 0px rgb(253 230 138);
+  background-color: #ffffff;
 `;
 
 export const Meta = styled.div`

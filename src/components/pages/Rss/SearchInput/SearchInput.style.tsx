@@ -7,7 +7,7 @@ export const Suggestions = styled.div`
   width: calc(100% + 2px);
   top: 35px;
   left: -1px;
-  background-color: #f8f9fa;
+  background-color: #ffffff;
   border: 1px solid #5f6368;
   border-top: none;
   border-bottom-left-radius: 24px;
@@ -29,6 +29,7 @@ export const Container = styled.form`
   padding: 10px 15px;
   display: flex;
   gap: 13px;
+  background-color: #ffffff;
   border: 1px solid #5f6368;
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
