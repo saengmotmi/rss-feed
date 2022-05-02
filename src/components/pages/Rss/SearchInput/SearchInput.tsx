@@ -30,7 +30,7 @@ const SearchInput = () => {
   const handleInput = useCallback(
     throttle((e: React.ChangeEvent<HTMLInputElement>) => {
       setSearchKeyword(e.target.value);
-    }, 1000),
+    }, 200),
     []
   );
 
