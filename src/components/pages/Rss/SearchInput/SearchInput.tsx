@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useState } from "react";
 import Image from "next/image";
 import { useQuery } from "react-query";
 import { Container, Input, Suggestion, Suggestions } from "./SearchInput.style";
@@ -8,7 +8,6 @@ import { throttle } from "utils/throttle";
 
 const SearchInput = () => {
   const [searchKeyword, setSearchKeyword] = useState<string>("");
-  const inputRef = useRef<HTMLInputElement>(null);
   const { data } = useQuery(
     ["searchSuggestions", searchKeyword],
     () => getSearchSuggestions(encodeURIComponent(searchKeyword)),
@@ -34,12 +33,6 @@ const SearchInput = () => {
     []
   );
 
-  useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, []);
-
   const searchResult = data?.data.toplevel?.CompleteSuggestion;
   const keywords = Array.isArray(searchResult) ? searchResult : [searchResult];
 
@@ -48,12 +41,7 @@ const SearchInput = () => {
       <SectionTitle>구글 검색</SectionTitle>
       <Container onSubmit={handleSubmit}>
         <Image alt="search" src="/assets/search.svg" width={24} height={24} />
-        <Input
-          type="text"
-          ref={inputRef}
-          onChange={handleInput}
-          placeholder="Google Search"
-        />
+        <Input type="text" onChange={handleInput} placeholder="Google Search" />
         <Suggestions>
           {!!keywords[0] && keywords.length > 0 ? (
             keywords.map((k, idx) => (
