@@ -30,11 +30,10 @@ const Rss = ({ feeds }: Props) => {
         <SectionTitle>기술 포스트</SectionTitle>
         <Feeds>
           {paginatedFeeds.map((feed) => (
-            <PostCard key={feed.guid} feed={feed} />
+            <PostCard key={String(feed.link)} feed={feed} />
           ))}
         </Feeds>
       </div>
-
       <Pagination
         setPage={setPage}
         contentsPerPage={CONTENTS_PER_PAGE}

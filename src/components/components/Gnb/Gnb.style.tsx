@@ -24,4 +24,6 @@ export const Title = styled.h1`
   margin: 0;
 `;
 
-export const UserArea = styled.div``;
+export const UserArea = styled.div`
+  cursor: pointer;
+`;

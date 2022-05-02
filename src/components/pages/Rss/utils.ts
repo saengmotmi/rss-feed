@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import Parser from "rss-parser";
 import { FILTER_TAGS_REGEX } from "utils/constants/regex";
-import type { Feed, Item } from "types/rss/rssApi";
+import type { Feed } from "types/rss/rssApi";
 
 export const parser = new Parser({
   headers: {
@@ -30,7 +30,7 @@ export const formatFeeds = (feeds: Feed[]) => {
       }))
     )
     .sort((a, b) => (dayjs(a.isoDate).isBefore(dayjs(b.isoDate)) ? 1 : -1))
-    .filter((_, i) => i < 50);
+    .filter((_, i) => i < 70);
 };
 
 export const limitStrLength = (str: string, limit = 300) => {

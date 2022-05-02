@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@octokit/core": "^3.6.0",
     "axios": "^0.27.2",
     "dayjs": "^1.11.1",
     "next": "12.1.0",
