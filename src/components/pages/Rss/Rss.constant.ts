@@ -14,6 +14,7 @@ export const BLOG_LIST = [
   // "https://jojoldu.tistory.com/feed", // 향로
   // 기업 기술 블로그
   "https://d2.naver.com/d2.atom", // 네이버 D2
+  "https://wit.nts-corp.com/feed", // 네이버 WIT
   "https://toss.tech/rss.xml", // 토스
   "https://fe-developers.kakaoent.com/rss.xml", // 카카오 엔터테인먼트
   "https://devblog.croquis.com/ko/index.xml", // 카카오 스타일
