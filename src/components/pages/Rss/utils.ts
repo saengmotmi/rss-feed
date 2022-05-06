@@ -30,7 +30,7 @@ export const formatFeeds = (feeds: Feed[]) => {
       }))
     )
     .sort((a, b) => (dayjs(a.isoDate).isBefore(dayjs(b.isoDate)) ? 1 : -1))
-    .filter((_, i) => i < 50);
+    .filter((_, i) => i < 100);
 };
 
 export const limitStrLength = (str: string, limit = 300) => {
