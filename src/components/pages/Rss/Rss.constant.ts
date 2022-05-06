@@ -18,6 +18,7 @@ export const BLOG_LIST = [
   "https://fe-developers.kakaoent.com/rss.xml", // 카카오 엔터테인먼트
   "https://devblog.croquis.com/ko/index.xml", // 카카오 스타일
   "https://hyperconnect.github.io/feed.xml", // 하이퍼커넥트
+  "https://meetup.toast.com/rss", // toast meetup
   // 지인
   // "https://rss.blog.naver.com/dong_dh.xml", // 김동희님
   "https://emewjin.github.io/rss.xml", // 임유진님
