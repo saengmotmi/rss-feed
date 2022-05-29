@@ -9,6 +9,7 @@ export const BLOG_LIST = [
   "https://medium.com/feed/@euncho", // 조은
   "https://milooy.github.io/rss.xml", // 진유림
   "https://jeonghwan-kim.github.io/feed.xml", // 김정환
+  "https://alstn2468.github.io/rss.xml", // 김민수
   "https://medium.com/feed/@yujso66", // 번역 블로그
   "https://junghan92.medium.com/feed", // 번역 블로그
   // "https://jojoldu.tistory.com/feed", // 향로
