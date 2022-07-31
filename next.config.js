@@ -19,28 +19,28 @@ const nextConfig = {
         headers: [
           {
             key: "Cache-Control",
-            value: "max-age=3600",
+            value: "max-age=0, s-maxage=31536000",
           },
         ],
       },
-      {
-        source: "/_next/image",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "max-age=3600",
-          },
-        ],
-      },
-      {
-        source: "/assets",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "max-age=3600",
-          },
-        ],
-      },
+      // {
+      //   source: "/_next/image",
+      //   headers: [
+      //     {
+      //       key: "Cache-Control",
+      //       value: "max-age=3600",
+      //     },
+      //   ],
+      // },
+      // {
+      //   source: "/assets",
+      //   headers: [
+      //     {
+      //       key: "Cache-Control",
+      //       value: "max-age=3600",
+      //     },
+      //   ],
+      // },
     ];
   },
 };
