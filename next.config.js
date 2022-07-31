@@ -12,6 +12,19 @@ const nextConfig = {
       "blogpfthumb-phinf.pstatic.net",
     ],
   },
+  async headers() {
+    return [
+      {
+        source: "/rss",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "max-age=3600",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
