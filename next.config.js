@@ -23,6 +23,24 @@ const nextConfig = {
           },
         ],
       },
+      {
+        source: "/_next/image",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "max-age=3600",
+          },
+        ],
+      },
+      {
+        source: "/assets",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "max-age=3600",
+          },
+        ],
+      },
     ];
   },
 };
