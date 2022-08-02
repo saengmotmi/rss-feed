@@ -12,6 +12,7 @@ const Gnb = () => {
             src="/assets/account.png"
             width={24}
             height={24}
+            priority={true}
           />
         </UserArea>
       </Wrapper>
