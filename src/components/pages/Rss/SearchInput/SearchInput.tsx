@@ -40,7 +40,13 @@ const SearchInput = () => {
     <div>
       <SectionTitle>구글 검색</SectionTitle>
       <Container onSubmit={handleSubmit}>
-        <Image alt="search" src="/assets/search.svg" width={24} height={24} />
+        <Image
+          alt="search"
+          src="/assets/search.svg"
+          width={24}
+          height={24}
+          priority={true}
+        />
         <Input type="text" onChange={handleInput} placeholder="Google Search" />
         <Suggestions>
           {!!keywords[0] && keywords.length > 0 ? (
