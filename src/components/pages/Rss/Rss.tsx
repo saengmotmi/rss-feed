@@ -6,7 +6,7 @@ import { Container, Feeds, SectionTitle } from "./Rss.style";
 import SearchInput from "./SearchInput/SearchInput";
 
 const CONTENTS_PER_PAGE = 10;
-
+type a = React.FormEvent<HTMLInputElement>;
 interface Props {
   feeds: Item[];
 }
