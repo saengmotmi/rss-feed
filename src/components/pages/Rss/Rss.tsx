@@ -1,26 +1,37 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useLayoutEffect } from "react";
 import Pagination from "components/components/Pagination/Pagination";
 import type { Item } from "types/rss/rssApi";
 import PostCard from "./PostCard/PostCard";
 import { Container, Feeds, SectionTitle } from "./Rss.style";
 import SearchInput from "./SearchInput/SearchInput";
+import { useRouter } from "next/router";
 
 const CONTENTS_PER_PAGE = 10;
-type a = React.FormEvent<HTMLInputElement>;
+
 interface Props {
   feeds: Item[];
 }
 
 const Rss = ({ feeds }: Props) => {
-  const [page, setPage] = useState(0);
+  const { query } = useRouter();
+  const [page, setPage] = useState(1);
+  const offset = page - 1;
+
+  useEffect(() => {
+    scrollTo(0, 0);
+  }, [page]);
+
+  useLayoutEffect(() => {
+    setPage(Number(query.page) || 1);
+  }, [query.page]);
 
   const paginatedFeeds = useMemo(
     () =>
       feeds.slice(
-        page * CONTENTS_PER_PAGE,
-        page * CONTENTS_PER_PAGE + CONTENTS_PER_PAGE
+        offset * CONTENTS_PER_PAGE,
+        offset * CONTENTS_PER_PAGE + CONTENTS_PER_PAGE
       ),
-    [feeds, page]
+    [feeds, offset]
   );
 
   return (
