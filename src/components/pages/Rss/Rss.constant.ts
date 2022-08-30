@@ -29,4 +29,5 @@ export const BLOG_LIST = [
   "https://code.visualstudio.com/feed.xml", // VSCode
   "https://developer.chrome.com/feeds/devtools.xml", // 크롬 - 개발자 도구 태그
   "https://developer.chrome.com/feeds/performance.xml", // 크롬 - 성능 태그
+  "https://vercel.com/atom", // vercel
 ];
