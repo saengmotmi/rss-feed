@@ -20,7 +20,6 @@ const Rss: NextPage<Props> = ({ feeds }) => {
 export default Rss;
 
 export const getStaticProps = async () => {
-  console.log("call");
   const feeds = (await Promise.all(
     BLOG_LIST.map((url) => parser.parseURL(url))
   )) as Feed[];

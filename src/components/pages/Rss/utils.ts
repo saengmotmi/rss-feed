@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import Parser from "rss-parser";
 import { FILTER_TAGS_REGEX } from "utils/constants/regex";
-import type { Feed, Item } from "types/rss/rssApi";
+import type { Feed } from "types/rss/rssApi";
 
 export const parser = new Parser({
   headers: {

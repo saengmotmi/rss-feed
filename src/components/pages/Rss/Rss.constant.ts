@@ -24,4 +24,9 @@ export const BLOG_LIST = [
   // 지인
   // "https://rss.blog.naver.com/dong_dh.xml", // 김동희님
   "https://emewjin.github.io/rss.xml", // 임유진님
+  // 기술 지원
+  "https://devblogs.microsoft.com/typescript/feed/", // 타입스크립트
+  "https://code.visualstudio.com/feed.xml", // VSCode
+  "https://developer.chrome.com/feeds/devtools.xml", // 크롬 - 개발자 도구 태그
+  "https://developer.chrome.com/feeds/performance.xml", // 크롬 - 성능 태그
 ];
