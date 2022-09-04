@@ -1,4 +1,5 @@
 export const BLOG_LIST = [
+  "https://kciter.so/feed.xml",
   "https://v2.velog.io/rss/teo", // teo
   "https://v2.velog.io/rss/koeunyeon", // koeunyeon
   "https://wormwlrm.github.io/feed.xml", // 재그지그
