@@ -11,6 +11,7 @@ export const parser = new Parser({
 
 export const formatFeeds = (feeds: Feed[]) => {
   return feeds
+    .filter((f) => f.title !== "No title")
     .flatMap((f) =>
       f.items.map((i) => ({
         ...i,
