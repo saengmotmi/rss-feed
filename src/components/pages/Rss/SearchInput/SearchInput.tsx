@@ -1,10 +1,11 @@
 import React, { useCallback, useState } from "react";
 import Image from "next/image";
 import { useQuery } from "react-query";
-import { Container, Input, Suggestion, Suggestions } from "./SearchInput.style";
+
 import { getSearchSuggestions } from "services/rss";
+import { throttle } from "utils";
+import { Container, Input, Suggestion, Suggestions } from "./SearchInput.style";
 import { SectionTitle } from "../Rss.style";
-import { throttle } from "utils/throttle";
 
 const SearchInput = () => {
   const [searchKeyword, setSearchKeyword] = useState<string>("");

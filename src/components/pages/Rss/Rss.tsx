@@ -31,7 +31,7 @@ const Rss = ({ feeds: feedsFromServer }: RssProps) => {
       <Pagination
         setPage={setPage}
         contentsPerPage={CONTENTS_PER_PAGE}
-        data={feeds}
+        data={feedsFromServer}
       />
     </Container>
   );

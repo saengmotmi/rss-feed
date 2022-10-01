@@ -11,24 +11,25 @@ export const parser = new Parser({
 
 export const formatFeeds = (feeds: Feed[]) => {
   return feeds
-    .filter((f) => f.title !== "No title")
     .flatMap((f) =>
-      f.items.map((i) => ({
-        ...i,
-        // JSON 크기 제한
-        content: limitStrLength(i.content),
-        contentSnippet: limitStrLength(i.contentSnippet),
-        "content:encoded": limitStrLength(i["content:encoded"] ?? ""),
-        "content:encodedSnippet": limitStrLength(
-          i["content:encodedSnippet"] ?? ""
-        ),
-        blogTitle: f.title,
-        image: f?.image || {
-          url: "",
-          link: "",
-          title: "",
-        },
-      }))
+      f.items
+        .filter((f) => f.title !== "No title")
+        .map((i) => ({
+          ...i,
+          // JSON 크기 제한
+          content: limitStrLength(i.content),
+          contentSnippet: limitStrLength(i.contentSnippet),
+          "content:encoded": limitStrLength(i["content:encoded"] ?? ""),
+          "content:encodedSnippet": limitStrLength(
+            i["content:encodedSnippet"] ?? ""
+          ),
+          blogTitle: f.title,
+          image: f?.image || {
+            url: "",
+            link: "",
+            title: "",
+          },
+        }))
     )
     .sort((a, b) => (dayjs(a.isoDate).isBefore(dayjs(b.isoDate)) ? 1 : -1))
     .filter((_, i) => i < 100);
