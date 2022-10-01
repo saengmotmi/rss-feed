@@ -2,12 +2,16 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
-import font from "styles/font";
-import GlobalStyle from "styles/GlobalStyle";
+import { ChakraProvider } from "@chakra-ui/react";
 // @ts-ignore
 const AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
   ssr: false,
 });
+
+import font from "styles/font";
+import GlobalStyle from "styles/GlobalStyle";
+
+import Layout from "components/components/Layout/Layout";
 
 const queryClient = new QueryClient();
 
@@ -25,7 +29,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       <GlobalStyle />
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
-          <Component {...pageProps} />
+          <ChakraProvider>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </ChakraProvider>
         </Hydrate>
       </QueryClientProvider>
       <AnimatedCursor
