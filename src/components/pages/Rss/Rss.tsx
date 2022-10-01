@@ -1,10 +1,11 @@
-import { useState, useMemo, useEffect, useLayoutEffect } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Pagination from "components/components/Pagination/Pagination";
 import type { Item } from "types/rss/rssApi";
 import PostCard from "./PostCard/PostCard";
 import { Container, Feeds, SectionTitle } from "./Rss.style";
 import SearchInput from "./SearchInput/SearchInput";
 import { useRouter } from "next/router";
+import useIsomorphicLayoutEffect from "hooks/useIsomorphicLayoutEffect";
 
 const CONTENTS_PER_PAGE = 10;
 
@@ -21,7 +22,7 @@ const Rss = ({ feeds }: Props) => {
     scrollTo(0, 0);
   }, [page]);
 
-  useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     setPage(Number(query.page) || 1);
   }, [query.page]);
 
@@ -40,8 +41,8 @@ const Rss = ({ feeds }: Props) => {
       <div>
         <SectionTitle>기술 포스트</SectionTitle>
         <Feeds>
-          {paginatedFeeds.map((feed) => (
-            <PostCard key={feed.guid} feed={feed} />
+          {paginatedFeeds.map((feed, idx) => (
+            <PostCard key={feed.guid + idx} feed={feed} />
           ))}
         </Feeds>
       </div>
