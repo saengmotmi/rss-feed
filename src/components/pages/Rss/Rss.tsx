@@ -1,39 +1,21 @@
-import { useState, useMemo, useEffect } from "react";
 import Pagination from "components/components/Pagination/Pagination";
 import type { Item } from "types/rss/rssApi";
+
 import PostCard from "./PostCard/PostCard";
-import { Container, Feeds, SectionTitle } from "./Rss.style";
 import SearchInput from "./SearchInput/SearchInput";
-import { useRouter } from "next/router";
-import useIsomorphicLayoutEffect from "hooks/useIsomorphicLayoutEffect";
+import { Container, Feeds, SectionTitle } from "./Rss.style";
+import usePaginatedPage from "./hooks/usePaginatedPage";
 
-const CONTENTS_PER_PAGE = 10;
+export const CONTENTS_PER_PAGE = 10;
 
-interface Props {
+export interface RssProps {
   feeds: Item[];
 }
 
-const Rss = ({ feeds }: Props) => {
-  const { query } = useRouter();
-  const [page, setPage] = useState(1);
-  const offset = page - 1;
-
-  useEffect(() => {
-    scrollTo(0, 0);
-  }, [page]);
-
-  useIsomorphicLayoutEffect(() => {
-    setPage(Number(query.page) || 1);
-  }, [query.page]);
-
-  const paginatedFeeds = useMemo(
-    () =>
-      feeds.slice(
-        offset * CONTENTS_PER_PAGE,
-        offset * CONTENTS_PER_PAGE + CONTENTS_PER_PAGE
-      ),
-    [feeds, offset]
-  );
+const Rss = ({ feeds: feedsFromServer }: RssProps) => {
+  const { feeds, setPage } = usePaginatedPage({
+    data: feedsFromServer,
+  });
 
   return (
     <Container>
@@ -41,12 +23,11 @@ const Rss = ({ feeds }: Props) => {
       <div>
         <SectionTitle>기술 포스트</SectionTitle>
         <Feeds>
-          {paginatedFeeds.map((feed, idx) => (
+          {feeds.map((feed, idx) => (
             <PostCard key={feed.guid + idx} feed={feed} />
           ))}
         </Feeds>
       </div>
-
       <Pagination
         setPage={setPage}
         contentsPerPage={CONTENTS_PER_PAGE}
