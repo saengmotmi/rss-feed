@@ -1,7 +1,7 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import font from "styles/font";
 import GlobalStyle from "styles/GlobalStyle";
 // @ts-ignore
@@ -24,7 +24,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       {/* 스타일 다 깨짐 */}
       <GlobalStyle />
       <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
+        <Hydrate state={pageProps.dehydratedState}>
+          <Component {...pageProps} />
+        </Hydrate>
       </QueryClientProvider>
       <AnimatedCursor
         // @ts-ignore

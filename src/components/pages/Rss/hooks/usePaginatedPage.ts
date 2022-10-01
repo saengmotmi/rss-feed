@@ -1,13 +1,15 @@
-import useIsomorphicLayoutEffect from "hooks/useIsomorphicLayoutEffect";
-import { useRouter } from "next/router";
 import { useEffect, useMemo, useState } from "react";
-import { CONTENTS_PER_PAGE, RssProps } from "../Rss";
+import { useRouter } from "next/router";
+import type { Item } from "rss-parser";
+
+import useIsomorphicLayoutEffect from "hooks/useIsomorphicLayoutEffect";
+import { CONTENTS_PER_PAGE } from "../Rss";
 
 interface Props {
-  data: RssProps["feeds"];
+  items: Item[];
 }
 
-const usePaginatedPage = ({ data: feeds }: Props) => {
+const usePaginatedPage = ({ items }: Props) => {
   const { query } = useRouter();
   const [page, setPage] = useState(1);
   const offset = page - 1;
@@ -22,11 +24,11 @@ const usePaginatedPage = ({ data: feeds }: Props) => {
 
   const paginatedFeeds = useMemo(
     () =>
-      feeds.slice(
+      items.slice(
         offset * CONTENTS_PER_PAGE,
         offset * CONTENTS_PER_PAGE + CONTENTS_PER_PAGE
       ),
-    [feeds, offset]
+    [items, offset]
   );
 
   return { feeds: paginatedFeeds, setPage };

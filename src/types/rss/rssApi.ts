@@ -1,30 +1,16 @@
-export interface Feed {
-  items: Item[];
-  feedUrl?: string;
-  image?: Image;
-  paginationLinks?: PaginationLinks;
-  title: string;
-  description: string;
-  generator: string;
-  link: string;
-  copyright?: string;
-  lastBuildDate?: string;
-  docs?: string;
-  pubDate?: string;
-  language?: string;
-}
+import { Output } from "rss-parser";
 
-export interface Item {
-  title: string;
-  link: string;
-  pubDate: string;
-  content: string;
-  contentSnippet: string;
-  guid: string;
+export type Feed = AdditionalItemProperties &
+  Output<{
+    [key: string]: any;
+  }>;
+
+export type Item = Feed["items"][number];
+
+export interface AdditionalItemProperties {
   isoDate: string;
   "content:encoded"?: string;
   "content:encodedSnippet"?: string;
-  creator?: string;
   author?: string;
   categories?: string[];
   blogTitle: string; // Feed의 title으로부터

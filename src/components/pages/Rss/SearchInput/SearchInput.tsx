@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 import Image from "next/image";
 import { useQuery } from "react-query";
 
-import { getSearchSuggestions } from "services/rss";
+import { getSearchSuggestions } from "services/rss/search";
 import { throttle } from "utils";
 import { Container, Input, Suggestion, Suggestions } from "./SearchInput.style";
 import { SectionTitle } from "../Rss.style";

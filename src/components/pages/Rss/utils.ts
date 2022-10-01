@@ -1,9 +1,9 @@
 import dayjs from "dayjs";
 import Parser from "rss-parser";
 import { FILTER_TAGS_REGEX } from "utils/constants/regex";
-import type { Feed } from "types/rss/rssApi";
+import type { AdditionalItemProperties, Feed } from "types/rss/rssApi";
 
-export const parser = new Parser({
+export const parser = new Parser<AdditionalItemProperties>({
   headers: {
     Accept: "application/rss+xml, application/xml, application/atom+xml",
   },
@@ -17,8 +17,8 @@ export const formatFeeds = (feeds: Feed[]) => {
         .map((i) => ({
           ...i,
           // JSON 크기 제한
-          content: limitStrLength(i.content),
-          contentSnippet: limitStrLength(i.contentSnippet),
+          content: limitStrLength(i?.content ?? ""),
+          contentSnippet: limitStrLength(i?.contentSnippet ?? ""),
           "content:encoded": limitStrLength(i["content:encoded"] ?? ""),
           "content:encodedSnippet": limitStrLength(
             i["content:encodedSnippet"] ?? ""
