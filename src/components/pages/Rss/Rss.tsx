@@ -24,8 +24,8 @@ const Rss = () => {
       <div>
         <FeedHeader />
         <Feeds>
-          {feeds.map((feed) => {
-            return <FeedCard key={feed.guid} feed={feed} />;
+          {feeds.map((feed, index) => {
+            return <FeedCard key={feed.guid ?? "" + index} feed={feed} />;
           })}
         </Feeds>
       </div>

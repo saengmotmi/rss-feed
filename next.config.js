@@ -23,6 +23,7 @@ const moduleExports = {
       "images.velog.io",
       "blogpfthumb-phinf.pstatic.net",
       "substackcdn.com",
+      "devblogs.microsoft.com",
     ],
   },
   sentry: {

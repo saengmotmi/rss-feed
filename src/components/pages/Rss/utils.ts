@@ -14,26 +14,26 @@ export const parser = new Parser<AdditionalItemProperties>({
 
 export const formatFeeds = (feeds: Feed[]) => {
   return feeds
-    .flatMap((f) =>
-      f.items
-        .filter((f) => f.title !== "No title")
-        .map((i) => {
+    .flatMap((feed) =>
+      feed.items
+        .filter((feed) => feed.title !== "No title")
+        .map((item) => {
           return {
-            ...i,
+            ...item,
             // JSON 크기 제한
-            content: limitStrLength(i?.content ?? ""),
-            contentSnippet: limitStrLength(i?.contentSnippet ?? ""),
-            "content:encoded": limitStrLength(i["content:encoded"] ?? ""),
+            content: limitStrLength(item?.content ?? ""),
+            contentSnippet: limitStrLength(item?.contentSnippet ?? ""),
+            "content:encoded": limitStrLength(item["content:encoded"] ?? ""),
             "content:encodedSnippet": limitStrLength(
-              i["content:encodedSnippet"] ?? ""
+              item["content:encodedSnippet"] ?? ""
             ),
-            blogTitle: f.title,
-            image: f.image ?? {
+            blogTitle: feed.title,
+            image: feed.image ?? {
               link: "",
               url: "",
               title: "",
             },
-            thumbnailImage: getThumbnailImage(f, i),
+            thumbnailImage: getThumbnailImage(item),
           };
         })
     )
@@ -45,10 +45,21 @@ export const limitStrLength = (str: string, limit = 300) => {
   return str?.replaceAll(FILTER_TAGS_REGEX, "").substring(0, limit) || "";
 };
 
-const getThumbnailImage = (feed: Feed, item: Item) => {
-  if (feed.image) {
-    return feed.image;
-  }
+const getThumbnailImage = (item: Item) => {
   const dom = new JSDOM(item.content ?? item.contentSnippet ?? "");
-  return dom.window.document.querySelector("img")?.getAttribute("src") ?? "";
+
+  let imageUrl =
+    dom.window.document.querySelector("img")?.getAttribute("src") ?? "";
+
+  const isRelativeUrl = imageUrl && item.link && !imageUrl.includes("http");
+  if (isRelativeUrl) {
+    try {
+      const url = new URL(item.link ?? "");
+      imageUrl = url.origin + imageUrl;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  return imageUrl;
 };
