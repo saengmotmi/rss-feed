@@ -50,6 +50,8 @@ export const BlogContent = styled.div`
 
   color: #8c8c8c;
 
+  word-break: break-all;
+
   line-height: 1.66;
   overflow: hidden;
   text-overflow: ellipsis;
