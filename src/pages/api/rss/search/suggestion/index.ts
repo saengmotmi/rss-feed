@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import Axios from "axios";
 import convert from "xml-js";
+
 import type { SearchSuggestions } from "types/rss/searchApi";
 
 const client = Axios.create({

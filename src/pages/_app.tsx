@@ -11,14 +11,12 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 const AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
   ssr: false,
 });
-
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 config.autoAddCss = false;
 
 import font from "styles/font";
 import GlobalStyle from "styles/GlobalStyle";
-
 import Layout from "components/common/Layout/Layout";
 
 const queryClient = new QueryClient();

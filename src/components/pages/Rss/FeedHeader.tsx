@@ -1,6 +1,6 @@
+import { Tooltip } from "@nextui-org/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleQuestion } from "@fortawesome/free-regular-svg-icons";
-import { Tooltip } from "@nextui-org/react";
 
 import Flex from "components/common/Flex";
 import { BLOG_LIST } from "./Rss.constant";

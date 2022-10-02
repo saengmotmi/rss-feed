@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
-import Image from "components/common/ImageWithFallback/ImageWithFallback";
 
+import Image from "components/common/ImageWithFallback/ImageWithFallback";
 import Flex from "components/common/Flex";
 import type { Item } from "types/rss/rssApi";
 import { TIME_FORMAT_DATE_AND_MINUTE } from "utils/constants/dates";

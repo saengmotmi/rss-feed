@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import { Container, Title, UserArea, Wrapper } from "./Gnb.style";
 
 const Gnb = () => {

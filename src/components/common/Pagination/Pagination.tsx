@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import ReactPaginate from "react-paginate";
+
 import type { SetStateType } from "types/utils";
 import { Container } from "./Pagination.style";
 

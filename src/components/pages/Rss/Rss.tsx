@@ -2,11 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 
 import Pagination from "components/common/Pagination/Pagination";
 import { getFeeds } from "services/rss/feeds";
-
 import SearchInput from "./SearchInput/SearchInput";
 import usePaginatedPage from "./hooks/usePaginatedPage";
 import { Container, Feeds } from "./Rss.style";
-
 import FeedHeader from "./FeedHeader";
 import FeedCard from "./FeedCard";
 
