@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import Image from "next/image";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 
 import { getSearchSuggestions } from "services/rss/search";
 import { throttle } from "utils";

@@ -1,11 +1,20 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
+import {
+  Hydrate,
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 // @ts-ignore
 const AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
   ssr: false,
 });
+
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+config.autoAddCss = false;
 
 import font from "styles/font";
 import GlobalStyle from "styles/GlobalStyle";
@@ -24,6 +33,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <style>{font}</style>
       </Head>
+      {/* <Script
+        src="https://kit.fontawesome.com/60a6871909.js"
+        crossOrigin="anonymous"
+      /> */}
       {/* 스타일 다 깨짐 */}
       <GlobalStyle />
       <QueryClientProvider client={queryClient}>
@@ -31,6 +44,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Layout>
             <Component {...pageProps} />
           </Layout>
+          <ReactQueryDevtools />
         </Hydrate>
       </QueryClientProvider>
       <AnimatedCursor

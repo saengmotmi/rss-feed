@@ -1,9 +1,8 @@
 import type { NextPage } from "next";
+import { dehydrate, QueryClient } from "@tanstack/react-query";
 
 import RssView from "components/pages/Rss/Rss";
-
 import { getFeeds } from "services/rss/feeds";
-import { dehydrate, QueryClient } from "react-query";
 
 const Rss: NextPage = () => {
   return <RssView />;

@@ -1,17 +1,21 @@
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 
-import Pagination from "components/components/Pagination/Pagination";
+import Pagination from "components/common/Pagination/Pagination";
 import { getFeeds } from "services/rss/feeds";
 
-import PostCard from "./PostCard/PostCard";
 import SearchInput from "./SearchInput/SearchInput";
 import usePaginatedPage from "./hooks/usePaginatedPage";
-import { Container, Feeds, SectionTitle } from "./Rss.style";
+import { Container, Feeds } from "./Rss.style";
+
+import FeedHeader from "./FeedHeader";
+import FeedCard from "./FeedCard";
 
 export const CONTENTS_PER_PAGE = 10;
 
 const Rss = () => {
-  const { data: feedsFromServer = [] } = useQuery(["feeds"], getFeeds);
+  const { data: feedsFromServer = [] } = useQuery(["feeds"], getFeeds, {
+    staleTime: Infinity,
+  });
 
   const { feeds, setPage } = usePaginatedPage({
     items: feedsFromServer,
@@ -21,11 +25,11 @@ const Rss = () => {
     <Container>
       <SearchInput />
       <div>
-        <SectionTitle>기술 포스트</SectionTitle>
+        <FeedHeader />
         <Feeds>
-          {feeds.map((feed, idx) => (
-            <PostCard key={feed.guid ?? "" + idx} feed={feed} />
-          ))}
+          {feeds.map((feed) => {
+            return <FeedCard key={feed.guid} feed={feed} />;
+          })}
         </Feeds>
       </div>
       <Pagination
