@@ -22,7 +22,7 @@ const FeedCard = ({ feed }: Props) => {
 
   return (
     <Container>
-      <Flex gap={10}>
+      <Flex gap={12}>
         <Flex direction="column" gap={8}>
           <BlogTitle>
             <a href={feed.link} target="_blank" rel="noreferrer">
@@ -35,7 +35,9 @@ const FeedCard = ({ feed }: Props) => {
             </a>
           </BlogContent>
         </Flex>
-        <Thumbnail />
+        {feed.thumbnailImage && (
+          <Thumbnail alt="thumbnail" src={feed.thumbnailImage} />
+        )}
       </Flex>
       <Flex justify="start" align="center" gap={8}>
         {feed.image?.url ? (

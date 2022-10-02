@@ -1,19 +1,18 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQueryClient } from "@tanstack/react-query";
 
 import Pagination from "components/common/Pagination/Pagination";
-import { getFeeds } from "services/rss/feeds";
 import SearchInput from "./SearchInput/SearchInput";
 import usePaginatedPage from "./hooks/usePaginatedPage";
 import { Container, Feeds } from "./Rss.style";
 import FeedHeader from "./FeedHeader";
 import FeedCard from "./FeedCard";
+import { Feed } from "types/rss/rssApi";
 
 export const CONTENTS_PER_PAGE = 10;
 
 const Rss = () => {
-  const { data: feedsFromServer = [] } = useQuery(["feeds"], getFeeds, {
-    staleTime: Infinity,
-  });
+  const cache = useQueryClient();
+  const feedsFromServer = cache.getQueryData<Feed[]>(["feeds"]) || [];
 
   const { feeds, setPage } = usePaginatedPage({
     items: feedsFromServer,

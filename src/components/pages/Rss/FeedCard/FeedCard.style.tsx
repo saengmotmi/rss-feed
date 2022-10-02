@@ -56,12 +56,20 @@ export const BlogContent = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   cursor: pointer;
 `;
 
-export const Thumbnail = styled.div`
+export const Thumbnail = styled.img`
+  min-width: 80px;
+  max-width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+`;
+
+export const ThumbnailBlank = styled.div`
   min-width: 80px;
   height: 80px;
 

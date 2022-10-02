@@ -15,6 +15,7 @@ export interface AdditionalItemProperties {
   categories?: string[];
   blogTitle: string; // Feed의 title으로부터
   image: Image; // Feed의 title으로부터
+  thumbnailImage: string;
 }
 
 export interface Image {
