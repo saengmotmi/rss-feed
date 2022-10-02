@@ -9,25 +9,25 @@ import { SectionTitle } from "./Rss.style";
 const FeedHeader = () => {
   return (
     <SectionTitle>
-      <Flex align="center" gap={8}>
-        <span>기술 포스트</span>
-        <Tooltip
-          content={
-            <Flex gap={8} direction="column">
-              {BLOG_LIST.map((blog) => (
-                <li key={blog.url} style={{ margin: 0 }}>
-                  {blog.label}: {blog.url}
-                </li>
-              ))}
-            </Flex>
-          }
-          rounded
-          placement="bottom"
-          color="invert"
-        >
+      <Tooltip
+        content={
+          <Flex gap={8} direction="column">
+            {BLOG_LIST.map((blog) => (
+              <li key={blog.url} style={{ margin: 0 }}>
+                {blog.label}: {blog.url}
+              </li>
+            ))}
+          </Flex>
+        }
+        rounded
+        placement="bottomStart"
+        color="invert"
+      >
+        <Flex align="center" gap={8}>
+          <span>기술 포스트</span>
           <FontAwesomeIcon icon={faCircleQuestion} width={14} />
-        </Tooltip>
-      </Flex>
+        </Flex>
+      </Tooltip>
     </SectionTitle>
   );
 };
