@@ -1,3 +1,5 @@
+import { errorToast, successToast } from "./toast";
+
 export * from "./env";
 
 export const limitArray = <T>(arr: T[], limit = 100) => {
@@ -44,4 +46,17 @@ export const throttle = (fn: Function, wait: number = 300) => {
       }, Math.max(wait - (Date.now() - lastTime), 0));
     }
   };
+};
+
+export const copyToClipboard = async (content?: string) => {
+  if (!content) {
+    errorToast("올바르지 않은 값을 복사할 수 없습니다");
+    return;
+  }
+  try {
+    await navigator.clipboard.writeText(content);
+    successToast("클립보드에 복사되었습니다");
+  } catch (error) {
+    console.log(error);
+  }
 };

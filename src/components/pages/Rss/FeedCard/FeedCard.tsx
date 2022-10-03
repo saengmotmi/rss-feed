@@ -12,6 +12,8 @@ import {
   Thumbnail,
   WrittenAt,
 } from "./FeedCard.style";
+import Icons from "assets";
+import { copyToClipboard } from "utils";
 
 interface Props {
   feed: Item;
@@ -39,30 +41,45 @@ const FeedCard = ({ feed }: Props) => {
           <Thumbnail alt="thumbnail" src={feed.thumbnailImage} />
         )}
       </Flex>
-      <Flex justify="start" align="center" gap={8}>
-        {feed.image?.url ? (
-          <Image
-            alt="post_thumbnail"
-            src={feed.image?.url ?? ""}
-            width={24}
-            height={24}
-            fallbackSrc="/assets/account.png"
-          />
-        ) : (
-          <Image
-            alt="post_thumbnail"
-            src="/assets/account.png"
-            width={24}
-            height={24}
-            fallbackSrc=""
-          />
-        )}
-        <Author>
-          {feed.blogTitle} {feed.author && `- ${feed.author}`}
-        </Author>
-        <WrittenAt>
-          {dayjs(feed.isoDate).format(TIME_FORMAT_DATE_AND_MINUTE)}
-        </WrittenAt>
+
+      <Flex justify="between" align="center">
+        <Flex gap={8} align="center">
+          {feed.image?.url ? (
+            <Image
+              priority
+              alt="post_thumbnail"
+              src={feed.image?.url ?? ""}
+              width={24}
+              height={24}
+              fallbackSrc="/assets/account.png"
+            />
+          ) : (
+            <Image
+              priority
+              alt="post_thumbnail"
+              src="/assets/account.png"
+              width={24}
+              height={24}
+              fallbackSrc=""
+            />
+          )}
+          <Author>
+            {feed.blogTitle} {feed.author && `- ${feed.author}`}
+          </Author>
+          <WrittenAt>
+            {dayjs(feed.isoDate).format(TIME_FORMAT_DATE_AND_MINUTE)}
+          </WrittenAt>
+        </Flex>
+        <Image
+          priority
+          alt="copy link"
+          src={Icons.Link}
+          width={16}
+          height={16}
+          fallbackSrc=""
+          style={{ cursor: "pointer" }}
+          onClick={() => copyToClipboard(feed.link ?? "")}
+        />
       </Flex>
     </Container>
   );

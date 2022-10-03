@@ -2,11 +2,13 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import {
+  type DehydratedState,
   Hydrate,
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { ToastContainer } from "react-toastify";
 // @ts-ignore
 const AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
   ssr: false,
@@ -21,7 +23,10 @@ import Layout from "components/common/Layout/Layout";
 
 const queryClient = new QueryClient();
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({
+  Component,
+  pageProps,
+}: AppProps<{ dehydratedState: DehydratedState }>) {
   return (
     <>
       <Head>
@@ -45,6 +50,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <ReactQueryDevtools />
         </Hydrate>
       </QueryClientProvider>
+      <ToastContainer theme="colored" />
       <AnimatedCursor
         // @ts-ignore
         innerSize={15}
