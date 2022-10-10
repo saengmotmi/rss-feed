@@ -19,6 +19,7 @@ export const getStaticProps = async () => {
     props: {
       dehydratedState: dehydrate(queryClient),
     },
-    revalidate: 60 * 60 * 3 /* ISR 3 hours */,
+    // revalidate: 60 * 60 * 3 /* ISR 3 hours */,
+    revalidate: 100 /* ISR 1 second */,
   };
 };
