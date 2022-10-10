@@ -2,6 +2,7 @@ const { withSentryConfig } = require("@sentry/nextjs");
 
 /** @type {import('next').NextConfig} */
 const moduleExports = {
+  swcMinify: true,
   reactStrictMode: true,
   staticPageGenerationTimeout: 2 * 60,
   async redirects() {
