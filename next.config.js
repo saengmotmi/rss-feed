@@ -1,4 +1,7 @@
 const { withSentryConfig } = require("@sentry/nextjs");
+// const withBundleAnalyzer = require("@next/bundle-analyzer")({
+//   enable: true,
+// });
 
 /** @type {import('next').NextConfig} */
 const moduleExports = {
@@ -35,15 +38,15 @@ const moduleExports = {
     // routes via `withSentry` redundant.
     autoInstrumentServerFunctions: true,
   },
-  // webpack: (config, options) => {
-  //   if (options.isServer && options.nextRuntime === "edge") {
-  //     config.resolve.alias = {
-  //       ...config.resolve.alias,
-  //       "./sentry.client.config.js": false,
-  //       "./sentry.server.config.js": false,
-  //     };
-  //   }
-  //   return config;
+  // webpack(config, { webpack }) {
+  //   const prod = process.env.NODE_ENV === "production";
+  //   const plugins = [...config.plugins];
+  //   return {
+  //     ...config,
+  //     mode: prod ? "production" : "development",
+  //     devtool: prod ? "hidden-source-map" : "eval",
+  //     plugins,
+  //   };
   // },
 };
 
@@ -58,5 +61,9 @@ const sentryWebpackPluginOptions = {
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options.
 };
+
+// module.exports = withBundleAnalyzer(
+//   withSentryConfig(moduleExports, sentryWebpackPluginOptions)
+// );
 
 module.exports = withSentryConfig(moduleExports, sentryWebpackPluginOptions);

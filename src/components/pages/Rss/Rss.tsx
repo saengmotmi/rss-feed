@@ -1,12 +1,19 @@
 import { useQueryClient } from "@tanstack/react-query";
 
-import Pagination from "components/common/Pagination/Pagination";
 import SearchInput from "./SearchInput/SearchInput";
 import usePaginatedPage from "./hooks/usePaginatedPage";
 import { Container, Feeds } from "./Rss.style";
 import FeedHeader from "./FeedHeader";
 import FeedCard from "./FeedCard";
 import { Feed } from "types/rss/rssApi";
+import dynamic from "next/dynamic";
+
+const Pagination = dynamic(
+  () => import("components/common/Pagination/Pagination"),
+  {
+    ssr: false,
+  }
+);
 
 export const CONTENTS_PER_PAGE = 10;
 
