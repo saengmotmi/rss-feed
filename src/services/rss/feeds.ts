@@ -9,5 +9,5 @@ export const getFeeds = async () => {
 
   const feeds = await Promise.all(blogs.map((url) => parser.parseURL(url)));
 
-  return limitArray(formatFeeds(feeds), 5 * 10);
+  return limitArray(formatFeeds(feeds), 3 * 10);
 };
