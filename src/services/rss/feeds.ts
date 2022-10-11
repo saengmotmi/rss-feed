@@ -11,7 +11,7 @@ export const getFeeds = async () => {
     (blog) => blog.url
   );
   const result = await Promise.allSettled(
-    blogs.map((url) => getBlogWithTimeout(url, 4 * 1000))
+    blogs.map((url) => getBlogWithTimeout(url, 3 * 1000))
   );
 
   return limitArray(
