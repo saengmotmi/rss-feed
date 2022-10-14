@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Vercel CLI를 설치합니다.
-        run: yarn add --global vercel@latest
+        run: yarn global add vercel@latest
       - name: Vercel 원격 환경에서 환경 변수 및 프로젝트 설정을 가져옵니다.
         run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
       - name: 프로젝트를 빌드 합니다.
