@@ -1,0 +1,28 @@
+name: 주기적으로 새로운 페이지 배포
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+on:
+  schedule:
+    - cron: "*/1 * * * *"
+
+jobs:
+  Deploy-Preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: actions/checkout@v3을 사용합니다.
+        uses: actions/checkout@v3
+
+      - name: Vercel CLI를 설치합니다.
+        run: yarn add vercel@latest
+
+      - name: Vercel 원격 환경에서 환경 변수 및 프로젝트 설정을 가져옵니다.
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: 프로젝트를 빌드 합니다.
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: 프로젝트를 배포합니다.
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
