@@ -16,7 +16,7 @@ export const getFeeds = async () => {
 
   return limitArray(
     formatFeeds(result.filter(isFulfilled).map((feed) => feed.value)),
-    3 * PAGE_LIMIT
+    10 * PAGE_LIMIT
   );
 };
 
