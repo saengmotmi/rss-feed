@@ -6,7 +6,7 @@ env:
 
 on:
   schedule:
-    - cron: "*/1 * * * *"
+    - cron: "0 */3 * * *" # At 0 minutes past the hour, every 3 hours
 
 jobs:
   Deploy-Preview:
