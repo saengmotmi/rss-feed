@@ -12,7 +12,6 @@ export default Rss;
 
 export const getStaticProps = async () => {
   const queryClient = new QueryClient();
-
   await queryClient.prefetchQuery(["feeds"], getFeeds);
 
   return {
