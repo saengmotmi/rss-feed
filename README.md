@@ -1,1 +1,2 @@
-Next.js + Styled Components + TypeScript Boilerplate
+구독하고 싶은 사이트를 자동으로 업데이트 해드려요. 브라우저 첫 화면으로 세팅해두시면 더욱 좋습니다 👍
+(조만간 더욱 업그레이드 된 새로운 서비스로 만나요!)
